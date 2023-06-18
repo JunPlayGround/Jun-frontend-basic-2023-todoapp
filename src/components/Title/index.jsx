@@ -18,6 +18,7 @@ const StyledText = styled.div`
     font-family: ${FONTFAMILY.NOTO_SANS};
     ${TEXTS.M};
   }
+  
   width: 100%;
   display: flex;
   align-items: center;
