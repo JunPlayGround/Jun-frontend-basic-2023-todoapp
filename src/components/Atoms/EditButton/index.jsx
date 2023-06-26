@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import COLOR from "../../../variables/color";
-//import TEXTS from "../../../variables/texts";
-//import FONTFAMILY from "../../../variables/font_family";
-//import BREAKPOINT from "../../../variables/breakpoint";
 import pencil from "../../../assets/svg/pencil.svg";
 
 const EditButton = (props) => {
