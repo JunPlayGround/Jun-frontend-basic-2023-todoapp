@@ -1,17 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import COLOR from "../../../variables/color";
-import TEXTS from "../../../variables/texts";
-import FONTFAMILY from "../../../variables/font_family";
-import BREAKPOINT from "../../../variables/breakpoint";
+//import TEXTS from "../../../variables/texts";
+//import FONTFAMILY from "../../../variables/font_family";
+//import BREAKPOINT from "../../../variables/breakpoint";
 import pencil from "../../../assets/svg/pencil.svg";
-
-/*const  SampleButton = (props) => {
-  return <button onClick = {props.onClick}>
-    {props.label}
-  </button>;
-};
-export default SampleButton;*/
 
 const EditButton = (props) => {
   return <PenButton onClick = {props.onClick}>
