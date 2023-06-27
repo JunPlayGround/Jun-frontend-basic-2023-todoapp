@@ -17,6 +17,7 @@ const PenButton = styled.button`
   padding: 0;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 
   :hover{
     background-color: ${COLOR.LIGHT_GRAY_TRANSLUCENT};
