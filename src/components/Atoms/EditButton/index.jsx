@@ -1,26 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 import COLOR from "../../../variables/color";
-import pencil from "../../../assets/svg/pencil.svg";
+import plus from "../../../assets/svg/plus.svg";
 
 const EditButton = (props) => {
-  return <PenButton onClick = {props.onClick}>
-    <img src={pencil} width={"20px"} />
-  </PenButton>;
+  return <EditPlus onClick = {props.onClick}>
+    <img src={plus} width={"20px"} /> 
+    <div>タスクを追加</div>
+  </EditPlus>;
 };
 export default EditButton;
 
-const PenButton = styled.button`
+const EditPlus = styled.button`
   background-color: transparent;
   border: none;
   margin: 0;
-  padding: 0;
-  width: 20px;
-  height: 20px;
+  padding: 2px 6px;
+  height: 24px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  color: ${COLOR.GREEN};
+  gap: 10px;
 
   :hover{
-    background-color: ${COLOR.LIGHT_GRAY_TRANSLUCENT};
-    border-radius: 10px;
+    background-color: ${COLOR.GREEN_TRANSLUCENT};
+    border-radius: 12px;
   }
 `;
