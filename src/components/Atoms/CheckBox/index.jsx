@@ -12,7 +12,7 @@ export default CheckBox;
 
 const Check = styled.button`
   background-color: transparent;
-  border-color: ${COLOR.LIGHT_GRAY};
+  border: ${COLOR.LIGHT_GRAY} solid 2px;
   margin: 0;
   padding: 0;
   width: 20px;
