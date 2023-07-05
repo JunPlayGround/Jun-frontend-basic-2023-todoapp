@@ -3,14 +3,14 @@ import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import pencil from "../../../assets/svg/pencil.svg";
 
-const AddTaskButton = (props) => {
-  return <PlusButton onClick = {props.onClick}>
+const EditButton = (props) => {
+  return <PenButton onClick = {props.onClick}>
     <img src={pencil} width={"20px"} />
-  </PlusButton>;
+  </PenButton>;
 };
-export default AddTaskButton;
+export default EditButton;
 
-const PlusButton = styled.button`
+const PenButton = styled.button`
   background-color: transparent;
   border: none;
   margin: 0;

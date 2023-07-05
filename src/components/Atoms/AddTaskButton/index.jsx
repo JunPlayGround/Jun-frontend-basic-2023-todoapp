@@ -3,13 +3,13 @@ import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import plus from "../../../assets/svg/plus.svg";
 
-const EditButton = (props) => {
+const AddTaskButton = (props) => {
   return <EditPlus onClick = {props.onClick}>
     <img src={plus} width={"20px"} /> 
     <div>タスクを追加</div>
   </EditPlus>;
 };
-export default EditButton;
+export default AddTaskButton;
 
 const EditPlus = styled.button`
   background-color: transparent;
