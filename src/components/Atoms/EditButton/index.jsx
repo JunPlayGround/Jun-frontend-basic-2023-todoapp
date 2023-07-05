@@ -1,30 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import COLOR from "../../../variables/color";
-import plus from "../../../assets/svg/plus.svg";
+import pencil from "../../../assets/svg/pencil.svg";
 
-const EditButton = (props) => {
-  return <EditPlus onClick = {props.onClick}>
-    <img src={plus} width={"20px"} /> 
-    <div>タスクを追加</div>
-  </EditPlus>;
+const AddTaskButton = (props) => {
+  return <PlusButton onClick = {props.onClick}>
+    <img src={pencil} width={"20px"} />
+  </PlusButton>;
 };
-export default EditButton;
+export default AddTaskButton;
 
-const EditPlus = styled.button`
+const PlusButton = styled.button`
   background-color: transparent;
   border: none;
   margin: 0;
-  padding: 2px 6px;
-  height: 24px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  color: ${COLOR.GREEN};
-  gap: 10px;
 
   :hover{
-    background-color: ${COLOR.GREEN_TRANSLUCENT};
-    border-radius: 12px;
+    background-color: ${COLOR.LIGHT_GRAY_TRANSLUCENT};
+    border-radius: 10px;
   }
 `;
