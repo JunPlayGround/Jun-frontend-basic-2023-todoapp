@@ -3,7 +3,7 @@ import Component from "./index";
 
 export default {
   component: Component,
-  title: "Atoms/EditButton",
+  title: "Atoms/CheckBox",
   parameters: {
     backgrounds: {
       default: "dark",
