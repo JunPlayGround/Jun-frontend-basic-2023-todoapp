@@ -25,7 +25,6 @@ const InputTask = (props) => {
     inputRef.current.focus();
     inputRef.current.addEventListener('blur',focusout);
     inputRef.current.addEventListener('keydown',keypress);
-
   }, [])
 
   return <InputFrame ref={inputRef} type="text">
