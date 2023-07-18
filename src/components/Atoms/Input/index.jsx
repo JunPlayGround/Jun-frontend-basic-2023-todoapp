@@ -15,7 +15,7 @@ const InputTask = (props) => {
   const keypress = (e) => {
     if(e.code===`Enter`)
     {
-      focusout = null;
+      inputRef.current.removeEventListener('blur',focusout);
       props.onEditComplete(inputRef.current.value);
     }
   }
