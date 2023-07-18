@@ -23,8 +23,8 @@ const InputTask = (props) => {
   useEffect(() => {
     inputRef.current.value = props.defaultValue;
     inputRef.current.focus();
-    inputRef.addEventListener('blur',focusout);
-    inputRef.addEventListener('keydown',keypress);
+    inputRef.current.addEventListener('blur',focusout);
+    inputRef.current.addEventListener('keydown',keypress);
 
   }, [])
 
