@@ -15,9 +15,7 @@ const Template = (args) => <Component {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  defaultValue: () => {
-    return "";
-  },
+  defaultValue : "",
   onEditComplete: (e) => {
     console.log("onEditComplete");
   }

@@ -15,7 +15,7 @@ const InputTask = (props) => {
   const keypress = (e) => {
     if(e.code===`Enter`)
     {
-      inputRef.current.removeEventListener('blur',focusout);
+      inputRef.current.removeEventListener('blur',focusout,false);
       props.onEditComplete(inputRef.current.value);
     }
   }
@@ -23,8 +23,8 @@ const InputTask = (props) => {
   useEffect(() => {
     inputRef.current.value = props.defaultValue;
     inputRef.current.focus();
-    inputRef.current.addEventListener('blur',focusout);
-    inputRef.current.addEventListener('keydown',keypress);
+    inputRef.current.addEventListener('blur',focusout,false);
+    inputRef.current.addEventListener('keydown',keypress,false);
   }, [])
 
   return <InputFrame ref={inputRef} type="text">
