@@ -3,19 +3,17 @@ import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import TEXTS from "../../../variables/texts";
 
-<InputTask defaultValue onEditComplete /> 
-
-const InputTask = (props) => {
+const InputTask = (props = {defaultValue, onEditComplete}) => {
   const inputRef = useRef(null);
 
   const focusout = () => {
     props.onEditComplete(inputRef.current.value);
-  };
+  }
 
   const keypress = (e) => {
-    if(e.code===`Enter`)
+    if(e.code==='Enter')
     {
-      inputRef.current.removeEventListener('blur',focusout,false);
+      inputRef.current.removeEventListener('blur',focusout);
       props.onEditComplete(inputRef.current.value);
     }
   }
@@ -23,13 +21,11 @@ const InputTask = (props) => {
   useEffect(() => {
     inputRef.current.value = props.defaultValue;
     inputRef.current.focus();
-    inputRef.current.addEventListener('blur',focusout,false);
-    inputRef.current.addEventListener('keydown',keypress,false);
+    inputRef.current.addEventListener('blur',focusout);
+    inputRef.current.addEventListener('keydown',keypress);
   }, [])
 
-  return <InputFrame ref={inputRef} type="text">
-    
-  </InputFrame>;
+  return <InputFrame ref={inputRef} type="text"/>;
 };
 export default InputTask;
 
