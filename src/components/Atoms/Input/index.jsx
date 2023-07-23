@@ -7,14 +7,14 @@ const InputTask = (props = {defaultValue, onEditComplete}) => {
   const inputRef = useRef(null);
 
   const focusout = () => {
-    props.onEditComplete(inputRef.current.value);
+    onEditComplete(inputRef.current.value);
   }
 
   const keypress = (e) => {
     if(e.code==='Enter')
     {
       inputRef.current.removeEventListener('blur',focusout);
-      props.onEditComplete(inputRef.current.value);
+      onEditComplete(inputRef.current.value);
     }
   }
 
