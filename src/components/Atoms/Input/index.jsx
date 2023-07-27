@@ -3,7 +3,7 @@ import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import TEXTS from "../../../variables/texts";
 
-const InputTask = (props = {defaultValue, onEditComplete}) => {
+const InputTask = ({defaultValue, onEditComplete}) => {
   const inputRef = useRef(null);
 
   const focusout = () => {
@@ -19,7 +19,7 @@ const InputTask = (props = {defaultValue, onEditComplete}) => {
   }
 
   useEffect(() => {
-    inputRef.current.value = props.defaultValue;
+    inputRef.current.value = defaultValue;
     inputRef.current.focus();
     inputRef.current.addEventListener('blur',focusout);
     inputRef.current.addEventListener('keydown',keypress);
