@@ -3,10 +3,8 @@ import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import check from "../../../assets/svg/check.svg";
 
-const CheckBox = (props) => {
-  return <Check onClick = {props.onClick}>
-    
-  </Check>;
+const CheckBox = ({onClick}) => {
+  return <Check onClick = {onClick}/>;
 };
 export default CheckBox;
 
@@ -15,7 +13,8 @@ const Check = styled.button`
   border: ${COLOR.LIGHT_GRAY} solid 2px;
   margin: 0;
   padding: 0;
-  width: 20px;
+  max-width: 20px;
+  min-width: 20px;
   height: 20px;
   cursor: pointer;
   border-radius: 2px;
