@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
-import COLOR from "../../variables/color";
+import FONTFAMILY from "../../variables/font_family";
 import TEXTS from "../../variables/texts";
 import CheckBox from "../Atoms/CheckBox/index";
 import InputTask from "../Atoms/Input/index";
@@ -37,6 +37,7 @@ const Tasks = ({onTaskChange, onTaskComplete, taskName, defaultIsEditing}) => {
 export default Tasks;
 
 const StyledWrapper = styled.div`
+  font-family: ${FONTFAMILY.NOTO_SANS};
   display: flex;
   width: 25%;
   padding: 2px 6px;
