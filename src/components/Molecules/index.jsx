@@ -5,6 +5,7 @@ import TEXTS from "../../variables/texts";
 import CheckBox from "../Atoms/CheckBox/index";
 import InputTask from "../Atoms/Input/index";
 import EditButton from "../Atoms/EditButton/index";
+import COLOR from "../../variables/color";
 
 const Tasks = ({onTaskChange, onTaskComplete, taskName, defaultIsEditing}) => {
   const [isEditing, setIsEditing] = useState(defaultIsEditing);
@@ -21,8 +22,8 @@ const Tasks = ({onTaskChange, onTaskComplete, taskName, defaultIsEditing}) => {
   return (
     <StyledWrapper>
       <CheckBox onClick={onTaskComplete} />
-      {isEditing ? <InputTask defaultValue={taskName} onEditComplete={onEditComplete} /> //isEditingがTrueの場合
-      : (                                 //isEditingがFalseの場合
+      {isEditing ? <InputTask defaultValue={taskName} onEditComplete={onEditComplete} />
+      : (                                 
           <>
           <StyledTaskName>
             {taskName}
@@ -46,6 +47,7 @@ const StyledWrapper = styled.div`
 
 const StyledTaskName = styled.div`
   ${TEXTS.S}
+  color: ${COLOR.LIGHT_GRAY};
   width: 100%;
   margin: 0;
 `;
