@@ -3,8 +3,8 @@ import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import check from "../../../assets/svg/check.svg";
 
-const CheckBox = ({onClick}) => {
-  return <Check onClick = {onClick}/>;
+const CheckBox = ({ onClick }) => {
+  return <Check onClick={onClick} />;
 };
 export default CheckBox;
 
@@ -19,7 +19,7 @@ const Check = styled.button`
   cursor: pointer;
   border-radius: 2px;
 
-  :hover{
+  :hover {
     background-clip: padding;
     background-image: url(${check});
     background-size: contain;

@@ -4,9 +4,11 @@ import COLOR from "../../../variables/color";
 import pencil from "../../../assets/svg/pencil.svg";
 
 const EditButton = (props) => {
-  return <PenButton onClick = {props.onClick}>
-    <img src={pencil} width={"20px"} />
-  </PenButton>;
+  return (
+    <PenButton onClick={props.onClick}>
+      <img src={pencil} width={"20px"} />
+    </PenButton>
+  );
 };
 export default EditButton;
 
@@ -19,7 +21,7 @@ const PenButton = styled.button`
   height: 20px;
   cursor: pointer;
 
-  :hover{
+  :hover {
     background-color: ${COLOR.LIGHT_GRAY_TRANSLUCENT};
     border-radius: 10px;
   }

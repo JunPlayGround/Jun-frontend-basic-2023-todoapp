@@ -7,7 +7,7 @@ import InputTask from "../Atoms/Input/index";
 import EditButton from "../Atoms/EditButton/index";
 import COLOR from "../../variables/color";
 
-const Tasks = ({onTaskChange, onTaskComplete, taskName, defaultIsEditing}) => {
+const Tasks = ({ onTaskChange, onTaskComplete, taskName, defaultIsEditing }) => {
   const [isEditing, setIsEditing] = useState(defaultIsEditing);
 
   const onEditComplete = (value) => {
@@ -17,23 +17,21 @@ const Tasks = ({onTaskChange, onTaskComplete, taskName, defaultIsEditing}) => {
 
   const onEditButtonClick = () => {
     setIsEditing(true);
-  }
+  };
 
   return (
     <StyledWrapper>
       <CheckBox onClick={onTaskComplete} />
-      {isEditing ? <InputTask defaultValue={taskName} onEditComplete={onEditComplete} />
-      : (                                 
-          <>
-          <StyledTaskName>
-            {taskName}
-          </StyledTaskName>
-            <EditButton onClick={onEditButtonClick} />
-          </>
-        )
-      }
+      {isEditing ? (
+        <InputTask defaultValue={taskName} onEditComplete={onEditComplete} />
+      ) : (
+        <>
+          <StyledTaskName>{taskName}</StyledTaskName>
+          <EditButton onClick={onEditButtonClick} />
+        </>
+      )}
     </StyledWrapper>
-  )
+  );
 };
 export default Tasks;
 

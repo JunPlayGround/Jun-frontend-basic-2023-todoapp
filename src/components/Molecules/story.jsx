@@ -1,4 +1,4 @@
-import React, {useRef, useEffect}from "react";
+import React, { useRef, useEffect } from "react";
 import Component from "./index";
 
 export default {
@@ -15,12 +15,12 @@ const Template = (args) => <Component {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  onTaskChange : (Name) => {
+  onTaskChange: (Name) => {
     console.log(Name);
   },
   onTaskComplete: () => {
     console.log("onTaskComplete");
   },
-  taskName : "",
-  defaultIsEditing : false,
+  taskName: "",
+  defaultIsEditing: false,
 };
