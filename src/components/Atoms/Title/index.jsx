@@ -13,12 +13,12 @@ export default Title;
 const StyledText = styled.div`
   color: ${COLOR.WHITE};
   ${TEXTS.L};
-  font-family: ${FONTFAMILY.ROBOTO}; 
-  @media (max-width: ${BREAKPOINT.MEDIUM}){
+  font-family: ${FONTFAMILY.ROBOTO};
+  @media (max-width: ${BREAKPOINT.MEDIUM}) {
     font-family: ${FONTFAMILY.NOTO_SANS};
     ${TEXTS.M};
   }
-  
+
   width: 100%;
   display: flex;
   align-items: center;

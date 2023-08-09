@@ -4,10 +4,12 @@ import COLOR from "../../../variables/color";
 import plus from "../../../assets/svg/plus.svg";
 
 const AddTaskButton = (props) => {
-  return <EditPlus onClick = {props.onClick}>
-    <img src={plus} width={"20px"} /> 
-    <div>タスクを追加</div>
-  </EditPlus>;
+  return (
+    <EditPlus onClick={props.onClick}>
+      <img src={plus} width={"20px"} />
+      <div>タスクを追加</div>
+    </EditPlus>
+  );
 };
 export default AddTaskButton;
 
@@ -23,7 +25,7 @@ const EditPlus = styled.button`
   color: ${COLOR.GREEN};
   gap: 10px;
 
-  :hover{
+  :hover {
     background-color: ${COLOR.GREEN_TRANSLUCENT};
     border-radius: 12px;
   }

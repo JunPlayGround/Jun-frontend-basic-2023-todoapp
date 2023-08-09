@@ -1,4 +1,4 @@
-import React, {useRef, useEffect}from "react";
+import React, { useRef, useEffect } from "react";
 import Component from "./index";
 
 export default {
@@ -15,8 +15,8 @@ const Template = (args) => <Component {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  defaultValue : "",
+  defaultValue: "",
   onEditComplete: (e) => {
     console.log("onEditComplete");
-  }
+  },
 };
