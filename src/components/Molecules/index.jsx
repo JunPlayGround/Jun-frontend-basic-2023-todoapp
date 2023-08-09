@@ -38,7 +38,7 @@ export default Tasks;
 const StyledWrapper = styled.div`
   font-family: ${FONTFAMILY.NOTO_SANS};
   display: flex;
-  width: 25%;
+  width: 100%;
   padding: 2px 6px;
   gap: 10px;
 `;
