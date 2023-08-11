@@ -34,7 +34,7 @@ const TodoCard = () => {
       <AddTaskButton onClick={onAddTaskButtonClick} />
       <StyledTaskList>
         {
-            Object.entries(taskList).map(function (task,index){
+            taskList.map(function (task,index){
               return  <Tasks onTaskChange={onTaskNameChange} onTaskComplete={onTaskComplete} taskName={task.name} defaultIsEditing={task.initializing} />;
             })
         }
