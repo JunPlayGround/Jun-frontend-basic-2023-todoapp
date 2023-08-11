@@ -6,26 +6,25 @@ import COLOR from "../../variables/color";
 import AddTaskButton from "../Atoms/AddTaskButton/index";
 import Tasks from "../Molecules/index";
 
-
 const TodoCard = () => {
   const [taskList, setTaskList] = useState([]);
 
   const onAddTaskButtonClick = () => {
-    setTaskList(taskList.push({ name: "", initializing: true }));
+    taskList.push({ name: "", initializing: true })
+    setTaskList(taskList);
   };
 
   const onTaskComplete = (index) => {
-    taskList.splice(index, 1);
+    setTaskList(taskList.splice(index, 1));
   };
 
   const onTaskNameChange = ({ value, index }) => {
     //修正の余地あり
     if (value === []) {
-      taskList.splice(index, 1);
+      setTaskList(taskList.splice(index, 1));
     } else {
-      taskList[index].name = value;
+      setTaskList(taskList[index].name = value);
     }
-    setTaskList(taskList);
   };
 
   return (
@@ -33,21 +32,29 @@ const TodoCard = () => {
       <AddTaskButton onClick={onAddTaskButtonClick} />
       <StyledTaskList>
         {
-          taskList.map(function (task,index) {
-              [task, [index]]
-            })  
+          new Map(
+            Object.entries(taskList).map(function (task, index){
+              return [index, <Tasks onTaskChange={onTaskNameChange} onTaskComplete={onTaskComplete} taskName={task.name} defaultIsEditing={task.initializing} />];
+            })
+          )
         }
       </StyledTaskList>
     </StyledWrapper>
   );
 };
-export default Tasks;
+export default TodoCard;
 
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 500px;
+  padding: 20px;
+  border-radius: 4px;
+  gap: 10px;
 `;
 
 const StyledTaskList = styled.div`
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
