@@ -21,11 +21,12 @@ const TodoCard = () => {
 
   const onTaskNameChange = ({ value, index }) => {
     const changeList = [...taskList];
-    if (value === []) {
-      setTaskList(changeList.splice(index, 1));
+    if (value === "") {
+      changeList.splice(index, 1);
     } else {
-      setTaskList(changeList[index].name = value);
+      changeList[index].name = value;
     }
+    setTaskList(changeList);
   };
 
   return (
@@ -33,7 +34,7 @@ const TodoCard = () => {
       <AddTaskButton onClick={onAddTaskButtonClick} />
       <StyledTaskList>
         {
-            Object.entries(taskList).map(function (task){
+            Object.entries(taskList).map(function (task,index){
               return  <Tasks onTaskChange={onTaskNameChange} onTaskComplete={onTaskComplete} taskName={task.name} defaultIsEditing={task.initializing} />;
             })
         }
