@@ -10,20 +10,21 @@ const TodoCard = () => {
   const [taskList, setTaskList] = useState([]);
 
   const onAddTaskButtonClick = () => {
-    taskList.push({ name: "", initializing: true })
-    setTaskList(taskList);
+    const addList = [...taskList];
+    setTaskList(addList.concat({ name: "", initializing: true }));
   };
 
   const onTaskComplete = (index) => {
-    setTaskList(taskList.splice(index, 1));
+    const deleteList = [...taskList];
+    setTaskList(deleteList.splice(index, 1));
   };
 
   const onTaskNameChange = ({ value, index }) => {
-    //修正の余地あり
+    const changeList = [...taskList];
     if (value === []) {
-      setTaskList(taskList.splice(index, 1));
+      setTaskList(changeList.splice(index, 1));
     } else {
-      setTaskList(taskList[index].name = value);
+      setTaskList(changeList[index].name = value);
     }
   };
 
@@ -32,11 +33,9 @@ const TodoCard = () => {
       <AddTaskButton onClick={onAddTaskButtonClick} />
       <StyledTaskList>
         {
-          new Map(
-            Object.entries(taskList).map(function (task, index){
-              return [index, <Tasks onTaskChange={onTaskNameChange} onTaskComplete={onTaskComplete} taskName={task.name} defaultIsEditing={task.initializing} />];
+            Object.entries(taskList).map(function (task){
+              return  <Tasks onTaskChange={onTaskNameChange} onTaskComplete={onTaskComplete} taskName={task.name} defaultIsEditing={task.initializing} />;
             })
-          )
         }
       </StyledTaskList>
     </StyledWrapper>
