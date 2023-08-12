@@ -7,7 +7,7 @@ import AddTaskButton from "../Atoms/AddTaskButton/index";
 import Tasks from "../Molecules/index";
 
 const TodoCard = () => {
-  const [taskList, setTaskList] = useState([{name: "", initializing: true}]);
+  const [taskList, setTaskList] = useState([{ name: "", initializing: true }]);
 
   const onAddTaskButtonClick = () => {
     const addList = [...taskList];
@@ -16,7 +16,7 @@ const TodoCard = () => {
 
   const onTaskComplete = (index) => {
     const deleteList = [...taskList];
-    deleteList.splice(index, 1)
+    deleteList.splice(index, 1);
     setTaskList(deleteList);
   };
 
@@ -34,11 +34,21 @@ const TodoCard = () => {
     <StyledWrapper>
       <AddTaskButton onClick={onAddTaskButtonClick} />
       <StyledTaskList>
-        {
-            taskList.map((task,index)=>{
-              return <Tasks key={index} onTaskChange={(value) => { onTaskNameChange({ value, index })}} onTaskComplete={(index) => { onTaskComplete(index)}} taskName={task.name} defaultIsEditing={task.initializing} />;
-            })
-        }
+        {taskList.map((task, index) => {
+          return (
+            <Tasks
+              key={index}
+              onTaskChange={(value) => {
+                onTaskNameChange({ value, index });
+              }}
+              onTaskComplete={(index) => {
+                onTaskComplete(index);
+              }}
+              taskName={task.name}
+              defaultIsEditing={task.initializing}
+            />
+          );
+        })}
       </StyledTaskList>
     </StyledWrapper>
   );
