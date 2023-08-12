@@ -7,7 +7,7 @@ import AddTaskButton from "../Atoms/AddTaskButton/index";
 import Tasks from "../Molecules/index";
 
 const TodoCard = () => {
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState([{name: "", initializing: true}]);
 
   const onAddTaskButtonClick = () => {
     const addList = [...taskList];
@@ -16,15 +16,16 @@ const TodoCard = () => {
 
   const onTaskComplete = (index) => {
     const deleteList = [...taskList];
-    setTaskList(deleteList.splice(index, 1));
+    deleteList.splice(index, 1)
+    setTaskList(deleteList);
   };
 
   const onTaskNameChange = ({ value, index }) => {
     const changeList = [...taskList];
-    if (value === "") {
-      changeList.splice(index, 1);
-    } else {
+    if (value) {
       changeList[index].name = value;
+    } else {
+      changeList.splice(index, 1);
     }
     setTaskList(changeList);
   };
@@ -34,8 +35,8 @@ const TodoCard = () => {
       <AddTaskButton onClick={onAddTaskButtonClick} />
       <StyledTaskList>
         {
-            taskList.map(function (task,index){
-              return  <Tasks onTaskChange={onTaskNameChange} onTaskComplete={onTaskComplete} taskName={task.name} defaultIsEditing={task.initializing} />;
+            taskList.map((task,index)=>{
+              return <Tasks key={index} onTaskChange={(value) => { onTaskNameChange({ value, index })}} onTaskComplete={(index) => { onTaskComplete(index)}} taskName={task.name} defaultIsEditing={task.initializing} />;
             })
         }
       </StyledTaskList>
