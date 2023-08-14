@@ -10,14 +10,14 @@ const TodoCard = () => {
   const [taskList, setTaskList] = useState([{ name: "", initializing: true }]);
 
   const onAddTaskButtonClick = () => {
-    const addList = [...taskList];
-    setTaskList(addList.concat({ name: "", initializing: true }));
+    setTaskList([...taskList,({ name: "", initializing: true })]);
   };
 
-  const onTaskComplete = (index) => {
+  const onTaskComplete = ({ index }) => {
     const deleteList = [...taskList];
     deleteList.splice(index, 1);
     setTaskList(deleteList);
+    //setTaskList([[...taskList].slice(0, index), [...taskList].slice(index+1)])
   };
 
   const onTaskNameChange = ({ value, index }) => {
@@ -58,10 +58,11 @@ export default TodoCard;
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 100%;
   padding: 20px;
   border-radius: 4px;
   gap: 10px;
+  background-color:${COLOR.BLACK};
 `;
 
 const StyledTaskList = styled.div`

@@ -6,7 +6,7 @@ export default {
   title: "Organisms/TodoCard",
   parameters: {
     backgrounds: {
-      default: "dark",
+      default: "blue",
     },
   },
 };
