@@ -15,6 +15,7 @@ const TodoCard = () => {
 
   const onTaskComplete = ({ index }) => {
     const deleteList = [...taskList];
+    //console.log(index);
     deleteList.splice(index, 1);
     setTaskList(deleteList);
     //setTaskList([[...taskList].slice(0, index), [...taskList].slice(index+1)])
@@ -22,8 +23,10 @@ const TodoCard = () => {
 
   const onTaskNameChange = ({ value, index }) => {
     const changeList = [...taskList];
+    //console.log(value+" "+index);
     if (value) {
-      changeList[index].name = value;
+      //changeList[index].name = value;
+      changeList.splice(index, 1,{ name: value, initializing: true })
     } else {
       changeList.splice(index, 1);
     }
