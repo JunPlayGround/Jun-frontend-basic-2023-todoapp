@@ -19,6 +19,7 @@ const EditPlus = styled.button`
   margin: 0;
   padding: 2px 6px;
   height: 24px;
+  width: 126px;
   cursor: pointer;
   display: flex;
   flex-direction: row;
