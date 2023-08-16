@@ -26,7 +26,7 @@ const TodoCard = () => {
     //console.log(value+" "+index);
     if (value) {
       //changeList[index].name = value;
-      changeList.splice(index, 1,{ name: value, initializing: true })
+      changeList.splice(index, 1,{ name: value, initializing: false })
     } else {
       changeList.splice(index, 1);
     }
@@ -44,8 +44,8 @@ const TodoCard = () => {
               onTaskChange={(value) => {
                 onTaskNameChange({ value, index });
               }}
-              onTaskComplete={(index) => {
-                onTaskComplete(index);
+              onTaskComplete={() => {
+                onTaskComplete({ index });
               }}
               taskName={task.name}
               defaultIsEditing={task.initializing}
