@@ -10,27 +10,32 @@ const TodoCard = () => {
   const [taskList, setTaskList] = useState([{ name: "", initializing: true }]);
 
   const onAddTaskButtonClick = () => {
-    setTaskList([...taskList,({ name: "", initializing: true })]);
+    setTaskList([...taskList, { name: "", initializing: true }]);
   };
 
   const onTaskComplete = ({ index }) => {
     const deleteList = [...taskList];
-    //console.log(index);
-    deleteList.splice(index, 1);
-    setTaskList(deleteList);
-    //setTaskList([[...taskList].slice(0, index), [...taskList].slice(index+1)])
+    const listIndex = index;
+    setTaskList(
+      deleteList.filter((value, index, list) => {
+        return index !== listIndex;
+      })
+    );
   };
 
   const onTaskNameChange = ({ value, index }) => {
     const changeList = [...taskList];
-    //console.log(value+" "+index);
+    const listIndex = index;
     if (value) {
-      //changeList[index].name = value;
-      changeList.splice(index, 1,{ name: value, initializing: false })
+      changeList.splice(listIndex, 1, { name: value, initializing: false });
+      setTaskList(changeList);
     } else {
-      changeList.splice(index, 1);
+      setTaskList(
+        changeList.filter((value, index, list) => {
+          return index !== listIndex;
+        })
+      );
     }
-    setTaskList(changeList);
   };
 
   return (
@@ -65,7 +70,7 @@ const StyledWrapper = styled.div`
   padding: 20px;
   border-radius: 4px;
   gap: 10px;
-  background-color:${COLOR.BLACK};
+  background-color: ${COLOR.BLACK};
 `;
 
 const StyledTaskList = styled.div`
