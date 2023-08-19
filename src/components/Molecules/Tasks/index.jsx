@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
-import FONTFAMILY from "../../variables/font_family";
-import TEXTS from "../../variables/texts";
-import CheckBox from "../Atoms/CheckBox/index";
-import InputTask from "../Atoms/Input/index";
-import EditButton from "../Atoms/EditButton/index";
-import COLOR from "../../variables/color";
+import FONTFAMILY from "../../../variables/font_family";
+import TEXTS from "../../../variables/texts";
+import CheckBox from "../../Atoms/CheckBox/index";
+import InputTask from "../../Atoms/Input/index";
+import EditButton from "../../Atoms/EditButton/index";
+import COLOR from "../../../variables/color";
 
 const Tasks = ({ onTaskChange, onTaskComplete, taskName, defaultIsEditing }) => {
   const [isEditing, setIsEditing] = useState(defaultIsEditing);

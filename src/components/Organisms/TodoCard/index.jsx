@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
-import FONTFAMILY from "../../variables/font_family";
-import TEXTS from "../../variables/texts";
-import COLOR from "../../variables/color";
-import AddTaskButton from "../Atoms/AddTaskButton/index";
-import Tasks from "../Molecules/index";
+import FONTFAMILY from "../../../variables/font_family";
+import TEXTS from "../../../variables/texts";
+import COLOR from "../../../variables/color";
+import BREAKPOINT from "../../../variables/breakpoint";
+import AddTaskButton from "../../Atoms/AddTaskButton/index";
+import Tasks from "../../Molecules/Tasks/index";
 
 const TodoCard = () => {
   const [taskList, setTaskList] = useState([{ name: "", initializing: true }]);
@@ -66,11 +67,16 @@ export default TodoCard;
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 500px;
   padding: 20px;
+  margin: 0 auto;
   border-radius: 4px;
   gap: 10px;
   background-color: ${COLOR.BLACK};
+  @media (max-width: ${BREAKPOINT.MEDIUM}) {
+    width: 100%;
+    max-width: 500px;
+  }
 `;
 
 const StyledTaskList = styled.div`
