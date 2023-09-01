@@ -11,12 +11,12 @@ const TodoCard = () => {
   let listStorage = localStorage; 
   const [taskList, setTaskList] = useState([{ name: "", initializing: true }]);
   
-  if (listStorage.length !== 0) {
-    setTaskList(JSON.parse(listStorage.getItem("taskList")))
-  }
-
   const updateList = () => {
-    listStorage.setItem("taskList", JSON.stringify(taskList))
+    listStorage.setItem("taskList", JSON.stringify(taskList));
+  }
+  
+  if (listStorage.length !== 0) {
+    setTaskList(JSON.parse(listStorage.getItem("taskList")));
   }
 
   const onAddTaskButtonClick = () => {
