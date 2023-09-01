@@ -8,16 +8,15 @@ import AddTaskButton from "../../Atoms/AddTaskButton/index";
 import Tasks from "../../Molecules/Tasks/index";
 
 const TodoCard = () => {
-  let listStorage = localStorage; 
   const [taskList, setTaskList] = useState([{ name: "", initializing: true }]);
-  
+
   const updateList = () => {
-    listStorage.setItem("taskList", JSON.stringify(taskList));
-  }
-  
-  if (listStorage.length !== 0) {
-    setTaskList(JSON.parse(listStorage.getItem("taskList")));
-  }
+    localStorage.setItem("taskList", JSON.stringify(taskList));
+  };
+
+  if (localStorage.hasOwnProperty("taskList")) {
+    setTaskList(JSON.parse(localStorage.getItem("taskList")));
+  };
 
   const onAddTaskButtonClick = () => {
     setTaskList([...taskList, { name: "", initializing: true }]);
