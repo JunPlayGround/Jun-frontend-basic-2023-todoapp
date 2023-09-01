@@ -10,17 +10,13 @@ import Tasks from "../../Molecules/Tasks/index";
 const TodoCard = () => {
   const [taskList, setTaskList] = useState([{ name: "", initializing: true }]);
 
-  const updateList = () => {
-    localStorage.setItem("taskList", JSON.stringify(taskList));
-  };
-
   if (localStorage.hasOwnProperty("taskList")) {
     setTaskList(JSON.parse(localStorage.getItem("taskList")));
   };
 
   const onAddTaskButtonClick = () => {
     setTaskList([...taskList, { name: "", initializing: true }]);
-    updateList();
+    localStorage.setItem("taskList", JSON.stringify(taskList));
   };
 
   const onTaskComplete = ({ index }) => {
@@ -31,7 +27,7 @@ const TodoCard = () => {
         return index !== listIndex;
       })
     );
-    updateList();
+    localStorage.setItem("taskList", JSON.stringify(taskList));
   };
 
   const onTaskNameChange = ({ value, index }) => {
@@ -47,7 +43,7 @@ const TodoCard = () => {
         })
       );
     }
-    updateList();
+    localStorage.setItem("taskList", JSON.stringify(taskList));
   };
 
   return (
