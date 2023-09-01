@@ -65,7 +65,6 @@ const TodoCard = () => {
             />
           );
         })}
-        {localStorage.setItem("taskList", JSON.stringify(taskList))}
       </StyledTaskList>
     </StyledWrapper>
   );
