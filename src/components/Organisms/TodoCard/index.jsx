@@ -16,7 +16,7 @@ const TodoCard = () => {
 
   const onAddTaskButtonClick = () => {
     setTaskList([...taskList, { name: "", initializing: true }]);
-    localStorage.setItem("taskList", JSON.stringify(taskList));
+    //localStorage.setItem("taskList", JSON.stringify(taskList));
   };
 
   const onTaskComplete = ({ index }) => {
@@ -27,7 +27,7 @@ const TodoCard = () => {
         return index !== listIndex;
       })
     );
-    localStorage.setItem("taskList", JSON.stringify(taskList));
+    //localStorage.setItem("taskList", JSON.stringify(taskList));
   };
 
   const onTaskNameChange = ({ value, index }) => {
@@ -43,7 +43,7 @@ const TodoCard = () => {
         })
       );
     }
-    localStorage.setItem("taskList", JSON.stringify(taskList));
+    //localStorage.setItem("taskList", JSON.stringify(taskList));
   };
 
   return (
@@ -65,6 +65,7 @@ const TodoCard = () => {
             />
           );
         })}
+        {localStorage.setItem("taskList", JSON.stringify(taskList))}
       </StyledTaskList>
     </StyledWrapper>
   );
