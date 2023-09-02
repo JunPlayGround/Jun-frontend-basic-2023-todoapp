@@ -8,10 +8,12 @@ import AddTaskButton from "../../Atoms/AddTaskButton/index";
 import Tasks from "../../Molecules/Tasks/index";
 
 const TodoCard = () => {
-  const [taskList, setTaskList] = useState([{ name: "", initializing: true }]);
+  /*const [taskList, setTaskList] = useState([{ name: "", initializing: true }]);
   if (localStorage.hasOwnProperty("taskList")) {
     setTaskList(JSON.parse(localStorage.getItem("taskList")));
-  }
+  }*/
+
+  const [taskList, setTaskList] = localStorage.hasOwnProperty("taskList") ? useState(JSON.parse(localStorage.getItem("taskList"))) : useState([{ name: "", initializing: true }]);
 
   useEffect(() => {
     localStorage.setItem("taskList", JSON.stringify(taskList));
