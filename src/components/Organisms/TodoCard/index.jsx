@@ -9,13 +9,13 @@ import Tasks from "../../Molecules/Tasks/index";
 
 const TodoCard = () => {
   const [taskList, setTaskList] = useState([{ name: "", initializing: true }]);
-  if (localStorage) {
+  if (localStorage.hasOwnProperty("taskList")) {
     setTaskList(JSON.parse(localStorage.getItem("taskList")));
   }
 
   useEffect(() => {
     localStorage.setItem("taskList", JSON.stringify(taskList));
-  },[taskList])
+  }, [taskList]);
 
   const onAddTaskButtonClick = () => {
     setTaskList([...taskList, { name: "", initializing: true }]);
