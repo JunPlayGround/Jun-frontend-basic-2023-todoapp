@@ -13,7 +13,7 @@ const Alert = ({ text }) => {
 export default Alert;
 
 const AlertStyle = styled.div`
-  display: block;
+  display: ${(props) => (props.isActive === "" ? "block" : "none")};
   background-color: ${COLOR.RED};
   color: ${COLOR.WHITE};
   font-size: ${TEXTS.S};
@@ -27,30 +27,29 @@ const AlertStyle = styled.div`
   justify-self: center;
   z-index: 100;
 
-  animation-name: ${(props) => (props.isActive === "" ? fadeIn : fadeOut)};
-  animation-duration: 0.5s;
+  animation-name: fadeIn;
+  animation-duration: 10s;
   animation-fill-mode: forwards;
 
+
   @keyframes fadeIn {
-    from {
+    0% {
       opacity: 0;
       transform: translateY(-80px);
     }
 
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeOut {
-    from {
+    10% {
       opacity: 1;
       transform: translateY(0);
     }
 
-    to {
-      opacity: 0;
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    100%{
+        opacity: 0;
       transform: translateY(-80px);
     }
   }
