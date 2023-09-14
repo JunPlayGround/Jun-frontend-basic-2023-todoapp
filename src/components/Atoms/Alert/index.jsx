@@ -17,11 +17,12 @@ const AlertStyle = styled.div`
   background-color: ${COLOR.RED};
   color: ${COLOR.WHITE};
   font-size: ${TEXTS.S};
-  width: 400px;
+  max-width: 400px;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
   position: relative;
+  margin: auto;
 
   top: 80px;
   justify-self: center;
@@ -30,7 +31,6 @@ const AlertStyle = styled.div`
   animation-name: fadeIn;
   animation-duration: 10s;
   animation-fill-mode: forwards;
-
 
   @keyframes fadeIn {
     0% {
@@ -44,18 +44,17 @@ const AlertStyle = styled.div`
     }
 
     90% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-    100%{
-        opacity: 0;
+    100% {
+      opacity: 0;
       transform: translateY(-80px);
     }
   }
 
   @media (max-width: ${BREAKPOINT.MEDIUM}) {
-    margin: 20px;
     top: 40px;
   }
 `;
