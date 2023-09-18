@@ -7,8 +7,8 @@ import BREAKPOINT from "../../../variables/breakpoint";
 import AddTaskButton from "../../Atoms/AddTaskButton/index";
 import Tasks from "../../Molecules/Tasks/index";
 
-const Alert = ({ text }) => {
-  return <AlertStyle isActive={text === ""}> タスク名が入力されていません。 </AlertStyle>;
+const Alert = ({ visible, errorText }) => {
+  return <AlertStyle isActive={errorText===""} isVisible={visible}> {errorText} </AlertStyle>;
 };
 export default Alert;
 
@@ -28,27 +28,29 @@ const AlertStyle = styled.div`
   justify-self: center;
   z-index: 100;
 
-  animation-name: fadeIn;
-  animation-duration: 10s;
+  animation-name: ${(props) => (props.isVisible ? "fadeOut" : "fadeIn")};
+  animation-duration: 1s;
   animation-fill-mode: forwards;
 
   @keyframes fadeIn {
-    0% {
+    from {
       opacity: 0;
       transform: translateY(-80px);
     }
 
-    10% {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeOut{
+    from {
       opacity: 1;
       transform: translateY(0);
     }
 
-    90% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    100% {
+    to {
       opacity: 0;
       transform: translateY(-80px);
     }

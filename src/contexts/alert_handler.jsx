@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
+import Alert from "../components/Atoms/Alert";
 
+//const showMessage = "タスク名が入力されていません。";
 const AlertHandlerContext = createContext();
 
 export const AlertHandlerProvider = ({ children }) => {
@@ -9,11 +11,21 @@ export const AlertHandlerProvider = ({ children }) => {
   });
 
   const setAlert = (errorText) => {
-    // TODO: ここを埋める
+    //Alert に表示する内容を指定し、Alert を開く関数
+    let setState = alertState;
+    setState.errorText = errorText;
+    Alert(setState);
+    setState.visible = !setState.visible;
+    setAlertState(setState);
   };
 
   const closeAlert = () => {
-    // TODO: ここを埋める
+    //Alert を閉じる関数
+    let setState = alertState;
+    setState.errorText = "";
+    Alert(setState);
+    setState.visible = !setState.visible;
+    setAlertState(setState);
   };
 
   const contextValue = {
@@ -22,11 +34,7 @@ export const AlertHandlerProvider = ({ children }) => {
     closeAlert: closeAlert,
   };
 
-  return (
-    <AlertHandlerContext.Provider value={contextValue}>
-      {children}
-    </AlertHandlerContext.Provider>
-  );
+  return <AlertHandlerContext.Provider value={contextValue}>{children}</AlertHandlerContext.Provider>;
 };
 
 export const useAlertHandlerContext = () => useContext(AlertHandlerContext);
