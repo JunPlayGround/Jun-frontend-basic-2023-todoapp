@@ -8,12 +8,12 @@ import AddTaskButton from "../../Atoms/AddTaskButton/index";
 import Tasks from "../../Molecules/Tasks/index";
 
 const Alert = ({ text }) => {
-  return <AlertStyle isActive={text}> タスク名が入力されていないので削除しました。 </AlertStyle>;
+  return <AlertStyle isActive={text === ""}> タスク名が入力されていません。 </AlertStyle>;
 };
 export default Alert;
 
 const AlertStyle = styled.div`
-  display: ${(props) => (props.isActive === "" ? "block" : "none")};
+  display: ${(props) => (props.isActive ? "block" : "none")};
   background-color: ${COLOR.RED};
   color: ${COLOR.WHITE};
   font-size: ${TEXTS.S};
