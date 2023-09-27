@@ -14,18 +14,18 @@ export const AlertHandlerProvider = ({ children }) => {
     //Alert に表示する内容を指定し、Alert を開く関数
     let setState = alertState;
     setState.errorText = errorText;
-    Alert(setState);
     setState.visible = !setState.visible;
     setAlertState(setState);
+    Alert(setState);
   };
 
   const closeAlert = () => {
     //Alert を閉じる関数
     let setState = alertState;
     setState.errorText = "";
-    Alert(setState);
     setState.visible = !setState.visible;
     setAlertState(setState);
+    Alert(setState);
   };
 
   const contextValue = {
