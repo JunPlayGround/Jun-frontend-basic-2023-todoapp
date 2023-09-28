@@ -23,13 +23,13 @@ const AlertStyle = styled.div`
   border-radius: 4px;
   position: relative;
   margin: auto;
-
+-
   top: 80px;
   justify-self: center;
   z-index: 100;
 
-  animation-name: ${(props) => (props.isVisible ? "fadeIn" : "fadeOut")};
-  animation-duration: ${(props) => (props.isVisible ? "7s" : "1s")};
+  animation-name: ${(props) => (!props.isVisible ? "fadeIn" : "fadeOut")};
+  animation-duration: ${(props) => (!props.isVisible ? "7s" : "1s")};
   animation-fill-mode: forwards;
 
   @keyframes fadeIn {

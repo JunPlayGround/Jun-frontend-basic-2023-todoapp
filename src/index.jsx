@@ -5,9 +5,11 @@ import "./style.css";
 import { AlertHandlerProvider } from "./contexts/alert_handler";
 
 ReactDOM.render(
+  <>
   <AlertHandlerProvider>
     <MainPage />
-    <AlertManager />
-  </AlertHandlerProvider>,
+    {/* <AlertManager /> */}
+    </AlertHandlerProvider>
+  </>  ,
   document.getElementById("app")
 );

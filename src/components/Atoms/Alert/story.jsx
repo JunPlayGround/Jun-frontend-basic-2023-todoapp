@@ -15,5 +15,6 @@ const Template = (args) => <Component {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  text: "Task" //Default要素に与えるpropsを定義
+  visible: false,
+  errorText: "Task" //Default要素に与えるpropsを定義
 };

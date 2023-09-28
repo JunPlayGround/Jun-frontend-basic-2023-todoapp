@@ -38,12 +38,12 @@ const TodoCard = () => {
       changeList.splice(listIndex, 1, { name: value, initializing: false });
       setTaskList(changeList);
     } else {
-      AlertHandlerContext.setAlert("タスク名が入力されていません。");
       setTaskList(
         changeList.filter((value, index, list) => {
           return index !== listIndex;
         })
       );
+      AlertHandlerContext.visible = false;
     }
   };
 

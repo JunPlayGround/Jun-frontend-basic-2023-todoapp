@@ -33,6 +33,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "caniuse-lite": "^1.0.30001541",
     "sb": "^7.0.22"
   }
 }
