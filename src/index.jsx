@@ -8,7 +8,7 @@ ReactDOM.render(
   <>
   <AlertHandlerProvider>
     <MainPage />
-    {/* <AlertManager /> */}
+    <AlertManager />
     </AlertHandlerProvider>
   </>  ,
   document.getElementById("app")

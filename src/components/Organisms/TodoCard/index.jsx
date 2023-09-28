@@ -43,7 +43,7 @@ const TodoCard = () => {
           return index !== listIndex;
         })
       );
-      AlertHandlerContext.visible = false;
+      AlertHandlerContext.setAlert("タスク名が入力されていません。");
     }
   };
 

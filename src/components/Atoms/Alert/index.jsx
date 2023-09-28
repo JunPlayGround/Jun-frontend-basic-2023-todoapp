@@ -13,7 +13,6 @@ const Alert = ({ visible, errorText }) => {
 export default Alert;
 
 const AlertStyle = styled.div`
-  // display: ${(props) => (props.isActive ? "block" : "none")};
   background-color: ${COLOR.RED};
   color: ${COLOR.WHITE};
   font-size: ${TEXTS.S};
@@ -23,7 +22,6 @@ const AlertStyle = styled.div`
   border-radius: 4px;
   position: relative;
   margin: auto;
--
   top: 80px;
   justify-self: center;
   z-index: 100;
