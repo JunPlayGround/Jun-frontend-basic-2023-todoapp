@@ -18,17 +18,18 @@ export const AlertHandlerProvider = ({ children }) => {
     setState.errorText = errorText;
     setState.visible = true;
     setAlertState(setState);
-    console.log(alertState.visible);
+    console.log(alertState.visible+" "+alertState.errorText);
   };
 
   const closeAlert = () => {
     //Alert を閉じる関数
     let closeState = alertState;
+    console.log("closeAlert "+ alertState.errorText);
     // Alert(setState);
-    closeState.errorText = "";
     closeState.visible = false;
     setAlertState(closeState);
-    console.log(alertState.visible);
+    console.log(alertState.visible+" "+alertState.errorText);
+    closeState.errorText = "";
   };
 
   const contextValue = {
@@ -40,4 +41,4 @@ export const AlertHandlerProvider = ({ children }) => {
   return <AlertHandlerContext.Provider value={contextValue}>{children}</AlertHandlerContext.Provider>;
 };
 
-export const useAlertHandlerContext = () => useContext(AlertHandlerContext);
+export const useAlertHandlerContext = () => {return useContext(AlertHandlerContext);}

@@ -8,11 +8,12 @@ import AddTaskButton from "../../Atoms/AddTaskButton/index";
 import Tasks from "../../Molecules/Tasks/index";
 
 const Alert = ({ visible, errorText }) => {
-  return <AlertStyle /*isActive={errorText===""}*/ isVisible={!visible}> { visible + errorText} </AlertStyle>;
+  return <AlertStyle isActive={errorText===""} isVisible={visible}> {errorText} </AlertStyle>;
 };
 export default Alert;
 
 const AlertStyle = styled.div`
+  // display: ${(props) => (props.isActive ? "none" : "block")};
   background-color: ${COLOR.RED};
   color: ${COLOR.WHITE};
   font-size: ${TEXTS.S};
