@@ -8,7 +8,7 @@ import AddTaskButton from "../../Atoms/AddTaskButton/index";
 import Tasks from "../../Molecules/Tasks/index";
 
 const Alert = ({ visible, errorText }) => {
-  return <AlertStyle /*isActive={errorText===""}*/ isVisible={visible}> {errorText} </AlertStyle>;
+  return <AlertStyle /*isActive={errorText===""}*/ isVisible={!visible}> { visible + errorText} </AlertStyle>;
 };
 export default Alert;
 
@@ -26,8 +26,8 @@ const AlertStyle = styled.div`
   justify-self: center;
   z-index: 100;
 
-  animation-name: ${(props) => (!props.isVisible ? "fadeIn" : "fadeOut")};
-  animation-duration: ${(props) => (!props.isVisible ? "7s" : "1s")};
+  animation-name: ${(props) => (props.isVisible ? "fadeIn" : "fadeOut")};
+  animation-duration: ${(props) => (props.isVisible ? "7s" : "1s")};
   animation-fill-mode: forwards;
 
   @keyframes fadeIn {
