@@ -13,24 +13,26 @@ export const AlertHandlerProvider = ({ children }) => {
 
   const setAlert = (errorText) => {
     //Alert に表示する内容を指定し、Alert を開く関数
-    console.log("setAlert "+ errorText);
-    let setState = alertState;
-    setState.errorText = errorText;
-    setState.visible = true;
-    setAlertState(setState);
-    console.log(alertState.visible+" "+alertState.errorText);
+    // console.log("setAlert "+ errorText);
+    // let setState = alertState;
+    // setState.errorText = errorText;
+    // setState.visible = true;
+    setAlertState({visible: true, errorText: errorText});
+    // console.log(alertState.visible+" "+alertState.errorText);
   };
 
   const closeAlert = () => {
     //Alert を閉じる関数
-    let closeState = alertState;
-    console.log("closeAlert "+ alertState.errorText);
+    // let closeState = alertState;
+    // console.log("closeAlert "+ alertState.errorText);
     // Alert(setState);
-    closeState.visible = false;
-    setAlertState(closeState);
-    console.log(alertState.visible+" "+alertState.errorText);
-    closeState.errorText = "";
+    // closeState.visible = false;
+    setAlertState({visible: false, errorText: alertState.errorText});
+    // console.log(alertState.visible+" "+alertState.errorText);
+    // closeState.errorText = "";
   };
+
+  console.log(alertState);
 
   const contextValue = {
     ...alertState,

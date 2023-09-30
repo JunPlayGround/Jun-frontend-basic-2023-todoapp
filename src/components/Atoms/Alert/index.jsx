@@ -8,12 +8,13 @@ import AddTaskButton from "../../Atoms/AddTaskButton/index";
 import Tasks from "../../Molecules/Tasks/index";
 
 const Alert = ({ visible, errorText }) => {
-  return <AlertStyle isActive={errorText===""} isVisible={visible}> {errorText} </AlertStyle>;
+  return <AlertStyle isNullErrorText={ errorText === "" } isVisible={visible}> {errorText} </AlertStyle>;
 };
 export default Alert;
 
 const AlertStyle = styled.div`
-  // display: ${(props) => (props.isActive ? "none" : "block")};
+  opacity: ${(props) => (props.isNullErrorText ? 0 : 1)};
+  transform: ${(props) => (!props.isVisible ? "translateY(-40px)" : "translateY(0)")};
   background-color: ${COLOR.RED};
   color: ${COLOR.WHITE};
   font-size: ${TEXTS.S};
@@ -27,43 +28,46 @@ const AlertStyle = styled.div`
   justify-self: center;
   z-index: 100;
 
-  animation-name: ${(props) => (props.isVisible ? "fadeIn" : "fadeOut")};
-  animation-duration: ${(props) => (props.isVisible ? "7s" : "1s")};
-  animation-fill-mode: forwards;
+  transition: all 1s ease-in;
+  transform
 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(-80px);
-    }
+  // animation-name: ${(props) => (props.isVisible ? "fadeIn" : "fadeOut")};
+  // animation-duration: ${(props) => (props.isVisible ? "7s" : "1s")};
+  // animation-fill-mode: forwards;
 
-    14% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  // @keyframes fadeIn {
+  //   0% {
+  //     opacity: 0;
+  //     transform: translateY(-80px);
+  //   }
 
-    86% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  //   14% {
+  //     opacity: 1;
+  //     transform: translateY(0);
+  //   }
 
-    100% {
-      opacity: 0;
-      transform: translateY(-80px);
-    }
-  }
+  //   86% {
+  //     opacity: 1;
+  //     transform: translateY(0);
+  //   }
 
-  @keyframes fadeOut{
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  //   100% {
+  //     opacity: 0;
+  //     transform: translateY(-80px);
+  //   }
+  // }
 
-    to {
-      opacity: 0;
-      transform: translateY(-80px);
-    }
-  }
+  // @keyframes fadeOut{
+  //   from {
+  //     opacity: 1;
+  //     transform: translateY(0);
+  //   }
+
+  //   to {
+  //     opacity: 0;
+  //     transform: translateY(-80px);
+  //   }
+  // }
 
   @media (max-width: ${BREAKPOINT.MEDIUM}) {
     top: 40px;
