@@ -8,12 +8,12 @@ import AddTaskButton from "../../Atoms/AddTaskButton/index";
 import Tasks from "../../Molecules/Tasks/index";
 
 const Alert = ({ visible, errorText }) => {
-  return <AlertStyle isNullErrorText={ errorText === "" } isVisible={visible}> {errorText} </AlertStyle>;
+  return <AlertStyle isVisible={visible}> {errorText} </AlertStyle>;
 };
 export default Alert;
 
 const AlertStyle = styled.div`
-  opacity: ${(props) => (props.isNullErrorText ? 0 : 1)};
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
   transform: ${(props) => (!props.isVisible ? "translateY(-40px)" : "translateY(0)")};
   transition: all 1s ease-in;
   background-color: ${COLOR.RED};
@@ -71,5 +71,3 @@ const AlertStyle = styled.div`
     top: 40px;
   }
 `;
-
-//visibility: ${(props) => props.isActive ? visible : collapse}

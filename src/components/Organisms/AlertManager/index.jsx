@@ -6,7 +6,7 @@ import Alert from "../../Atoms/Alert";
 const AlertManager = () => {
   /* コンポーネント関数内 */
   //Contextを取得
-  const { visible, errorText, setAlert, closeAlert} = useAlertHandlerContext();
+  const { visible, errorText, setAlert} = useAlertHandlerContext();
   console.log("Rerender AlertManager");
 
   return (

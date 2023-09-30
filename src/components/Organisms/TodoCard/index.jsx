@@ -44,7 +44,6 @@ const TodoCard = () => {
         })
       );
       AlertHandlerContext.setAlert("タスク名が入力されていません。");
-      setTimeout(() => { AlertHandlerContext.closeAlert() }, 5000);
     }
   };
 
