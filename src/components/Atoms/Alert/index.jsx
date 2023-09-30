@@ -15,6 +15,7 @@ export default Alert;
 const AlertStyle = styled.div`
   opacity: ${(props) => (props.isNullErrorText ? 0 : 1)};
   transform: ${(props) => (!props.isVisible ? "translateY(-40px)" : "translateY(0)")};
+  transition: all 1s ease-in;
   background-color: ${COLOR.RED};
   color: ${COLOR.WHITE};
   font-size: ${TEXTS.S};
@@ -27,9 +28,6 @@ const AlertStyle = styled.div`
   top: 80px;
   justify-self: center;
   z-index: 100;
-
-  transition: all 1s ease-in;
-  transform
 
   // animation-name: ${(props) => (props.isVisible ? "fadeIn" : "fadeOut")};
   // animation-duration: ${(props) => (props.isVisible ? "7s" : "1s")};
