@@ -29,44 +29,6 @@ const AlertStyle = styled.div`
   justify-self: center;
   z-index: 100;
 
-  // animation-name: ${(props) => (props.isVisible ? "fadeIn" : "fadeOut")};
-  // animation-duration: ${(props) => (props.isVisible ? "7s" : "1s")};
-  // animation-fill-mode: forwards;
-
-  // @keyframes fadeIn {
-  //   0% {
-  //     opacity: 0;
-  //     transform: translateY(-80px);
-  //   }
-
-  //   14% {
-  //     opacity: 1;
-  //     transform: translateY(0);
-  //   }
-
-  //   86% {
-  //     opacity: 1;
-  //     transform: translateY(0);
-  //   }
-
-  //   100% {
-  //     opacity: 0;
-  //     transform: translateY(-80px);
-  //   }
-  // }
-
-  // @keyframes fadeOut{
-  //   from {
-  //     opacity: 1;
-  //     transform: translateY(0);
-  //   }
-
-  //   to {
-  //     opacity: 0;
-  //     transform: translateY(-80px);
-  //   }
-  // }
-
   @media (max-width: ${BREAKPOINT.MEDIUM}) {
     top: 40px;
   }
