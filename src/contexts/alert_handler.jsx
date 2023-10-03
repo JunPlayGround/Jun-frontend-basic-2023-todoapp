@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, memo, useCallback, useContext, useState } from "react";
 import Alert from "../components/Atoms/Alert";
 import AlertManager from "../components/Organisms/AlertManager";
 
@@ -14,25 +14,24 @@ export const AlertHandlerProvider = ({ children }) => {
   const setAlert = (errorText) => {
     //Alert に表示する内容を指定し、Alert を開く関数
     setAlertState({visible: true, errorText: errorText});
-    // console.log(alertState.visible+" "+alertState.errorText);
+    console.log("setAlert "+alertState.visible+" "+alertState.errorText);
 
-    setTimeout(() => { setAlertState({visible: false, errorText: errorText}); }, 5000);
+    // setTimeout(() => { setAlertState({visible: false, errorText: errorText}); }, 5000);
   };
 
-  // const closeAlert = () => {
-  //   //Alert を閉じる関数
-  //   let text = alertState.errorText;
-  //   setAlertState({visible: false, errorText: text});
-  //   // console.log(alertState.visible+" "+alertState.errorText);
-  // };
-
+  const closeAlert = useCallback(()=>{
+    //Alert を閉じる関数
+    // let text = alertState.errorText;
+    setAlertState({visible: false, errorText: alertState.errorText});
+    console.log("closeAlert "+alertState.visible+" "+alertState.errorText);
+  }, [alertState.visible]);
 
   console.log(alertState);
 
   const contextValue = {
     ...alertState,
     setAlert: setAlert,
-    // closeAlert: closeAlert,
+    closeAlert: closeAlert,
   };
 
   return <AlertHandlerContext.Provider value={contextValue}>{children}</AlertHandlerContext.Provider>;

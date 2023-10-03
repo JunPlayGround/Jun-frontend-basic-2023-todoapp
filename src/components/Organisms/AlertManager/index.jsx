@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import { useAlertHandlerContext } from "../../../contexts/alert_handler";
 import Alert from "../../Atoms/Alert";
@@ -6,8 +6,14 @@ import Alert from "../../Atoms/Alert";
 const AlertManager = () => {
   /* コンポーネント関数内 */
   //Contextを取得
-  const { visible, errorText, setAlert} = useAlertHandlerContext();
+  const { visible, errorText, setAlert, closeAlert} = useAlertHandlerContext();
   console.log("Rerender AlertManager");
+
+  if (visible===true) {
+    setTimeout(() => {
+      closeAlert();
+    }, 5000);
+  }
 
   return (
     <AlertWrapper>
