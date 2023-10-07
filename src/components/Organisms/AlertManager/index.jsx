@@ -9,7 +9,7 @@ const AlertManager = () => {
   const { visible, errorText, setAlert, closeAlert} = useAlertHandlerContext();
   console.log("Rerender AlertManager");
 
-  if (visible===true) {
+  if (visible) {
     setTimeout(() => {
       closeAlert();
     }, 5000);
