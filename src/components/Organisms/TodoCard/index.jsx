@@ -6,10 +6,12 @@ import COLOR from "../../../variables/color";
 import BREAKPOINT from "../../../variables/breakpoint";
 import AddTaskButton from "../../Atoms/AddTaskButton/index";
 import Tasks from "../../Molecules/Tasks/index";
+import { useAlertHandlerContext } from "../../../contexts/alert_handler";
 
 const TodoCard = () => {
   const DEFAULT_VALUE = [{ name: "", initializing: true }]
   const [taskList, setTaskList] = useState(JSON.parse(localStorage.getItem("taskList")) ?? DEFAULT_VALUE);
+  const AlertHandlerContext = useAlertHandlerContext();
 
   useEffect(() => {
     localStorage.setItem("taskList", JSON.stringify(taskList));
@@ -41,6 +43,7 @@ const TodoCard = () => {
           return index !== listIndex;
         })
       );
+      AlertHandlerContext.setAlert("タスク名が入力されていません。");
     }
   };
 
